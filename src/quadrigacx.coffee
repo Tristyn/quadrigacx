@@ -53,7 +53,7 @@ module.exports = class Quadrigacx
 			params = {}
 
 		try 
-			nonce = @_nonce()
+			nonce = params.nonce || @_nonce()
 			signature_string = nonce + @client_id + @key
 			signature = crypto.createHmac("sha256", @secret_hash).update(signature_string).digest('hex')
 
